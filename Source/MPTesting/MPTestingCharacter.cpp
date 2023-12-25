@@ -86,16 +86,22 @@ void AMPTestingCharacter::OpenLobby()
 		//服务器将为所有已连接的客户端玩家调用 APlayerController::ClientTravel
 		
 		//表示 打开路径对应的关卡，字符串中的问号表示 该关卡被指定为监听服务器
-		world->ServerTravel("/Game/ThirdPerson/Maps/Lobby.umap?listen");
+		world->ServerTravel("/Game/ThirdPerson/Maps/Lobby?listen");
 	}
 }
-
+/// <summary>
+/// 连接IP关卡方式1
+/// </summary>
+/// <param name="Address"></param>
 void AMPTestingCharacter::CallOpenLevel(const FString& Address)
 {
 	//打开关卡（基于IP地址）
 	UGameplayStatics::OpenLevel(this, *Address);
 }
-
+/// <summary>
+/// 连接IP关卡方式2
+/// </summary>
+/// <param name="Address"></param>
 void AMPTestingCharacter::CallClientTravel(const FString& Address)
 {
 	//玩家控制器调用，前往不同的地图或IP
